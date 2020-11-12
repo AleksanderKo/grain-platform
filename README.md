@@ -1,6 +1,6 @@
-# Open Platform Demo
+# Grain Platform Demo
 
-Open Platform Demo is a simple application showing [Axelor Open Platform](https://github.com/axelor/axelor-open-platform) features.
+Grain Platform Demo is a simple application showing [Axelor Open Platform](https://github.com/axelor/axelor-open-platform) features.
 
 ## Installation
 
@@ -9,13 +9,13 @@ Make sure you have JDK 1.8 and Git installed.
 Clone the latest sources:
 
 ```bash
-$ git clone git@github.com:axelor/open-platform-demo.git
+$ git clone git@github.com:axelor/grain-platform.git
 ```
 
 and build the project:
 
 ```bash
-$ cd /path/to/open-platform-demo
+$ cd /path/to/grain-platform
 $ ./gradlew -x test build
 ```
 
