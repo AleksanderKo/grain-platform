@@ -1,7 +1,28 @@
-rootProject.name = 'open-platform-demo'
+rootProject.name = "grain-platform"
 
-include "modules:demo-contact"
-include "modules:demo-sale"
-include "modules:demo-project"
-include "modules:demo-custom"
-include "modules:demo-data"
+//include "axelor-open-platform"
+// include "modules:demo-contact"
+// include "modules:demo-sale"
+include "modules:grain-production"
+// include "modules:demo-custom"
+//
+// include "modules:axelor-admin"
+// include "modules:axelor-base"
+// include "modules:axelor-exception"
+// include "modules:axelor-message"
+// include "modules:axelor-studio"
+// include "modules:axelor-tool"
+
+// include "modules:demo-data"
+
+// def modules = []
+// file("modules").traverse(type: groovy.io.FileType.DIRECTORIES, maxDepth: 1) { it ->
+//  if(new File(it, "build.gradle").exists()) { modules.add(it) }
+// }
+
+// gradle.ext.appModules = modules
+
+// modules.each { dir ->
+//  include ":modules:$dir.name"
+// //  project(":modules:$dir.name") = dir
+// }

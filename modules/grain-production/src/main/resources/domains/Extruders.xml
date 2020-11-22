@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.3.xsd">
+
+
+  <module name="production" package="com.grain.production.db" />
+
+  <entity name="Extruders" cacheable="true">
+    <string name="name" required="true" unique="true" />
+    <string name="manufacturer" readonly="true"/>
+    <string name="model" />
+    <string name="serial" />
+    <integer name="power" default="250" />
+    <many-to-many name="instruments" ref="Instruments" mappedBy="extruders"/>
+    <one-to-one name="current_instrument" ref="Instruments" title="Установленный инструмент" />
+    <one-to-many name="productionPlan" ref="ProductionPlan" mappedBy="extruder" />
+
+<!--    <one-to-many name="parameters" ref="com.grain.production.db.parameters" required="true" />-->
+    <integer name="status" default="1"/>
+
+    <track on="UPDATE">
+<!--      <field name="name" />-->
+      <field name="current_instrument"/>
+      <field name="status"/>
+<!--      <message if="true" on="UPDATE">Запись обновлена</message>-->
+      <message if="status == 'Остановлено'" on="UPDATE" tag="info">Линия остановлена</message>
+      <message if="status == 'Переналадка'" on="UPDATE"  tag="warning">Линия на переналадке</message>
+      <message if="status == 3" tag="success">Линия в работе</message>
+      <message if="status == 4" tag="important">Авария на линии</message>
+    </track>
+
+  </entity>
+
+</domain-models>

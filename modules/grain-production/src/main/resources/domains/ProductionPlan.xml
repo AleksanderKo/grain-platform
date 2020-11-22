@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.3.xsd">
+
+    <module name="production" package="com.grain.production.db" />
+
+    <sequence name="production.plan.seq" initial="1" increment="1" padding="5" prefix="PP-"/>
+
+    <entity name="ProductionPlan" cacheable="true" sequential="true">
+        <many-to-one name="product" ref="Products" required="true"/>
+        <integer name="quantity" default="1" required="true"/>
+        <many-to-one name="extruder" ref="Extruders" required="true"/>
+        <string name="notes" multiline="true"/>
+        <string name="state" selection="productionPlan.state.selection" default="1"/>
+<!--        <integer name="priority"/>-->
+        <datetime name="startDate"/>
+        <datetime name="endDate"/>
+<!--        <datetime name="plannedStartDate"/>-->
+<!--        <integer name="plannedDuration">-->
+<!--            <![CDATA[-->
+<!--                  double duration = 0.0;-->
+<!--                  if (startDate == null || endDate == null) {-->
+<!--                    return 0;-->
+<!--                  }-->
+<!--                  else {-->
+<!--                    duration = java.time.temporal.ChronoUnit.HOURS.between(startDate, endDate);-->
+<!--                    return (int) duration;-->
+<!--                  }-->
+<!--            ]]>-->
+<!--        </integer>-->
+<!--        <decimal name="plannedProgress"/>-->
+        <string name="name" sequence="production.plan.seq" />
+    </entity>
+
+</domain-models>

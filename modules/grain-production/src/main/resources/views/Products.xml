@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.3.xsd">
+
+
+    <action-view name="products.all" title="Продукция" model="com.grain.production.db.Products">
+        <view type="grid" name="products-grid" />
+        <view type="form" name="products-form"/>
+        <!--        <view-param name="details-view" value="true" />-->
+    </action-view>
+
+    <grid name="products-grid" title="Список продукции" model="com.grain.production.db.Products">
+        <field name="code" title="Код"/>
+        <field name="name" title="Название" />
+        <field name="category" title="Категория" />
+    </grid>
+
+    <form name="products-form" title="Продукт" model="com.grain.production.db.Products" editable="false">
+        <panel title="Продукт" icon="fa-tasks" icon-background="green" canNew="true" canEdit="true">
+            <field name="code" colSpan="12" title="Код" />
+            <field name="name" colSpan="12" title="Название" />
+            <field name="category" colSpan="6" title="Категория" />
+        </panel>
+<!--        <panel-tabs>-->
+<!--            <panel-related field="products" title="Продукция" canNew="false" >-->
+<!--                <field name="code" title="Код"/>-->
+<!--                <field name="name" title="Название" />-->
+<!--            </panel-related>-->
+<!--            <panel-related field="instruments" title="Инструменты" canNew="false" >-->
+<!--                <field name="name" title="Название"/>-->
+<!--                <field name="manufacturer" title="Производитель"/>-->
+<!--                <field name="serial" title="Номер"/>-->
+<!--            </panel-related>-->
+<!--        </panel-tabs>-->
+    </form>
+
+</object-views>

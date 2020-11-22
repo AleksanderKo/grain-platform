@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.3.xsd">
+
+  <menuitem name="menu-production" order="-80" title="Производство" icon="fa-cogs" icon-background="violet"/>
+
+  <menuitem name="menu-production-setup" title="Настройки" parent="menu-production" />
+
+  <menuitem name="menu-production-extruders" parent="menu-production-setup"
+            title="Экструдеры"
+            action="extruders.all"/>
+
+  <menuitem name="menu-production-instruments"  parent="menu-production-setup"
+            title="Инструменты"
+            action="instruments.all"/>
+
+  <menuitem name="menu-production-products"  parent="menu-production-setup"
+            title="Продукция"
+            action="products.all"/>
+
+  <menuitem name="menu-production-category"  parent="menu-production-setup"
+            title="Категории"
+            action="category.all"/>
+
+  <menuitem name="menu-production-productionPlan"  parent="menu-production"
+            title="План производства"
+            action="productionPlan.all"/>
+
+</object-views>

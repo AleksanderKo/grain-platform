@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <projects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+<!--
   <project name="Project 1" priority="10">
     <description>New Web Application</description>
     <members>
@@ -53,6 +53,6 @@
       <task name="Development" priority="40" user="demo" createDate="28/10/2014 00:00" startDate="13/11/2014 00:00" endDate="01/01/2015 00:00" state="progress" plannedStartDate="13/11/2014 00:00" plannedDuration="300" parentTask="Implementation" />
       <task name="Follow-up" priority="5" user="admin" createDate="28/12/2014 00:00" startDate="01/02/2015 00:00" state="todo" plannedStartDate="01/02/2015 00:00" plannedDuration="600"/>
     </tasks>
-  </project>
+  </project> -->
 
 </projects>

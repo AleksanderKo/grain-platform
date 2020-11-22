@@ -17,7 +17,7 @@
  */
 package com.axelor.demo;
 
-import com.axelor.contact.db.Contact;
+// import com.axelor.contact.db.Contact;
 import com.axelor.event.Observes;
 import com.axelor.events.PostAction;
 import com.axelor.events.PostLogin;
@@ -26,7 +26,6 @@ import com.axelor.events.PreAction;
 import com.axelor.events.PreLogin;
 import com.axelor.events.PreRequest;
 import com.axelor.events.RequestEvent;
-import com.axelor.events.qualifiers.EntityType;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.slf4j.Logger;
@@ -59,10 +58,10 @@ public class DemoEventLogger {
     log.trace("ON SAVE ALL: {}", event.getRequest().getBeanClass());
   }
 
-  public void onSaveContact(
-      @Observes @Named(RequestEvent.SAVE) @EntityType(Contact.class) PreRequest event) {
-    log.trace("ON SAVE CONTACT: {}", event.getRequest().getBeanClass());
-  }
+  // public void onSaveContact(
+  //     @Observes @Named(RequestEvent.SAVE) @EntityType(Contact.class) PreRequest event) {
+  //   log.trace("ON SAVE CONTACT: {}", event.getRequest().getBeanClass());
+  // }
 
   public void onPreRequest(@Observes PreRequest event) {
     log.trace("PRE REQUEST: {} -> {}", event.getSource(), event.getRequest().getModel());
@@ -88,8 +87,8 @@ public class DemoEventLogger {
     log.trace("POST ACTION: " + event.getName());
   }
 
-  public void onPostActionCall(
-      @Observes @Named("com.axelor.sale.web.SaleOrderController:calculate") PostAction event) {
-    log.trace("POST CALCULATE: " + event.getResult());
-  }
+  // public void onPostActionCall(
+  //     @Observes @Named("com.axelor.sale.web.SaleOrderController:calculate") PostAction event) {
+  //   log.trace("POST CALCULATE: " + event.getResult());
+  // }
 }

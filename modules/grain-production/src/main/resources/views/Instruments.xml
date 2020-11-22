@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.3.xsd">
+
+
+    <action-view name="instruments.all" title="Иструменты" model="com.grain.production.db.Instruments">
+        <view type="cards" name="instruments-cards"/>
+        <view type="grid" name="instruments-grid" />
+        <view type="form" name="instruments-form"/>
+<!--        <view-param name="details-view" value="true" />-->
+    </action-view>
+
+
+    <cards name="instruments-cards" title="Экструдеры" model="com.grain.production.db.Instruments">
+        <field name="name"/>
+        <field name="manufacturer"/>
+        <field name="maintenance" />
+        <template><![CDATA[
+        <div>
+            <div class="alert alert-success">
+                <h4>{{name}}</h4>
+            </div>
+            <div >
+                <strong>{{manufacturer}}</strong>
+            </div>
+            </div>
+        ]]>
+        </template>
+    </cards>
+
+    <grid name="instruments-grid" title="Список экструдеров" model="com.grain.production.db.Instruments">
+        <field name="name" title="Имя" />
+        <field name="manufacturer" title="Производитель"/>
+        <field name="serial" title="Серийный номер"/>
+        <field name="maintenance" title="Последнее обслуживание" readonly="true" />
+    </grid>
+
+    <form name="instruments-form" title="Инструмент" model="com.grain.production.db.Instruments" editable="false">
+        <panel title="Инструмент" icon="fa-tasks" icon-background="green" canNew="true" canEdit="true">
+            <field name="name" colSpan="6" title="Имя инструмента" />
+            <field name="manufacturer" colSpan="6" title="Производитель" />
+            <field name="serial" title="Серийный номер" colSpan="6"/>
+            <field name="maintenance" title="Дата последнего обслуживания" colSpan="6" readonly="true"/>
+            <field name="category" title="Категория" />
+        </panel>
+        <panel-tabs>
+            <panel-related field="extruders" editable="false" title="Экструдеры" >
+                <field name="name" title="Название"/>
+                <field name="manufacturer" title="Производитель"/>
+            </panel-related>
+        </panel-tabs>
+    </form>
+
+</object-views>

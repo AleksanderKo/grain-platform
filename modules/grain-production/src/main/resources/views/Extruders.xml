@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.3.xsd">
+
+
+  <action-view name="extruders.all" title="Экструдеры" model="com.grain.production.db.Extruders">
+    <view type="cards" name="extruders-cards"/>
+    <view type="grid" name="extruders-grid"/>
+    <view type="form" name="extruders-form"/>
+  </action-view>
+
+  <cards name="extruders-cards" title="Экструдеры" model="com.grain.production.db.Extruders" css="danger">
+    <field name="name"/>
+    <field name="manufacturer"/>
+    <field name="status" />
+    <template><![CDATA[
+    <div>
+    <i class="fa fa-list-alt"/>
+      <div class="span4 bgColor=violet" >
+        <strong>{{name}}</strong>
+      </div>
+      <div class="span8">
+        <p class="muted">{{manufacturer}}</p>
+      </div>
+      <div class="span4" >
+        <strong>{{status}}</strong>
+      </div>
+    </div>
+    ]]>
+    </template>
+  </cards>
+
+  <grid name="extruders-grid" title="Список экструдеров" model="com.grain.production.db.Extruders">
+    <field name="name" title="Имя" />
+    <field name="manufacturer" title="Производитель" />
+    <field name="model" title="Модель"/>
+  </grid>
+
+  <form name="extruders-form" title="Экструдер" model="com.grain.production.db.Extruders" cols="8" canAttach="false">
+    <panel title="Действия" sidebar="true" stacked="true" >
+      <field name="status" widget="SingleSelect" edit-window="self"
+             title="Состояние" height="200" canEdit="true"
+             selection="extruder.status.select"/>
+<!--      <button-group>-->
+<!--        <button name="changeState" title="Остановить" onClick="state=1" prompt="This is a confirmation message."/>-->
+<!--      </button-group>-->
+    </panel>
+    <panel title="Экструдер" icon="fa-tasks" icon-background="green" >
+      <separator colSpan="12"/>
+      <field name="name" colSpan="6" title="Имя экструдера"/>
+      <field name="manufacturer" colSpan="6" title="Производитель" />
+      <field name="model" title="Модель"  colSpan="6"/>
+      <field name="serial" title="Серийный номер" colSpan="6"/>
+      <field name="power" title="Производительность" colSpan="3"/>
+      <field name="current_instrument" title="Установленный инструмент"/>
+<!--      <spacer colSpan="4"/>-->
+      <separator colSpan="12"/>
+      <panel-related  colSpan="12" field="instruments"
+                      title="Устанавливаемые инструменты" canNew="false">
+        <field name="name" title="Название" />
+        <field name="manufacturer" title="Производитель"/>
+        <field name="serial" title="Серийный номер"/>
+      </panel-related>
+<!--      <field name="instruments">-->
+<!--        <viewer><![CDATA[-->
+<!--          <instruments>-->
+<!--          {{record.name}} {{record.manufacturer}}<br>-->
+<!--          {{record.serial}}-->
+<!--          </instruments>-->
+<!--        ]]>-->
+<!--        </viewer>-->
+<!--        <editor x-show-titles="false">-->
+<!--          <field name="name" colSpan="12"/>-->
+<!--          <field name="manufacturer" colSpan="12"/>-->
+<!--          <field name="serial" colSpan="12"/>-->
+<!--        </editor>-->
+<!--      </field>-->
+    </panel>
+    <panel-mail>
+      <mail-messages limit="4" />
+      <mail-followers />
+    </panel-mail>
+  </form>
+
+</object-views>

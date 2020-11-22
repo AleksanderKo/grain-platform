@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.3.xsd">
+
+
+    <action-view name="productionPlan.all" title="План производства" model="com.grain.production.db.ProductionPlan">
+        <view type="gantt" name="productionPlan-gantt" />
+        <view type="grid" name="productionPlan-grid" />
+        <view type="form" name="productionPlan-form" />
+        <!--        <view-param name="details-view" value="true" />-->
+    </action-view>
+
+    <grid name="productionPlan-grid" title="Список" model="com.grain.production.db.ProductionPlan">
+        <field name="extruder" title="Линия"/>
+        <field name="product" title="Продукт" />
+        <field name="quantity" title="Количество"/>
+        <field name="startDate" title="Дата начала" />
+    </grid>
+
+    <form name="productionPlan-form" title="План производства"
+          model="com.grain.production.db.ProductionPlan" editable="true">
+        <panel title="План" icon="fa-tasks" icon-background="green" canNew="true" canEdit="true">
+            <field name="name" colSpan="12" />
+            <field name="product" colSpan="6" title="Продукт" />
+            <field name="quantity" colSpan="6" title="Количество"/>
+            <field name="extruder" colSpan="6" title="Линия"/>
+            <field name="startDate" colSpan="6" title="Дата начала"/>
+            <field name="endDate" colSpan="6" />
+<!--            <field name="duration" title="Продолжительность" readonly="true"/>-->
+<!--            <spacer></spacer>-->
+<!--            <field name="instruments" colSpan="6" title="Инструмент" readonly="true"/>-->
+
+<!--            <field name="category" colSpan="6" title="Категория" />-->
+        </panel>
+    </form>
+    
+    
+    <gantt title="План производства" name="productionPlan-gantt" model="com.grain.production.db.ProductionPlan"
+           taskStart="startDate"
+           taskEnd="endDate"
+           taskParent="product"
+           width="100%"
+    >
+        <field name="product"/>
+        <field name="extruder"/>
+    </gantt>
+
+</object-views>

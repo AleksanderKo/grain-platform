@@ -15,24 +15,24 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.axelor.demo;
+// package com.axelor.demo;
 
-import com.axelor.sale.db.Order;
-import com.axelor.sale.service.SaleOrderService;
-import java.util.Map;
-import javax.inject.Inject;
+// import com.axelor.sale.db.Order;
+// import com.axelor.sale.service.SaleOrderService;
+// import java.util.Map;
+// import javax.inject.Inject;
 
-public class Validators {
+// public class Validators {
 
-  @Inject private SaleOrderService service;
+//   @Inject private SaleOrderService service;
 
-  @SuppressWarnings("rawtypes")
-  public Object validateSaleOrder(Object bean, Map context) {
-    Order so = (Order) bean;
+//   @SuppressWarnings("rawtypes")
+//   public Object validateSaleOrder(Object bean, Map context) {
+//     Order so = (Order) bean;
 
-    service.validate(so);
-    service.calculate(so);
+//     service.validate(so);
+//     service.calculate(so);
 
-    return so;
-  }
-}
+//     return so;
+//   }
+// }

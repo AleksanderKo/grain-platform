@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.3.xsd">
+
+
+    <selection name="extruder.status.select">
+        <option color="gray" value="1">Остановлен</option>
+        <option color="yellow" value="2">Преналадка</option>
+        <option color="green" value="3">Работает</option>
+        <option color="red" value="4">Авария</option>
+    </selection>
+
+    <selection name="project.priority.select">
+        <option value="1">Обычный</option>
+        <option value="2">Выжный</option>
+        <option value="3">Срочный</option>
+    </selection>
+
+    <selection name="productionPlan.state.selection">
+        <option value="1">Новый</option>
+        <option value="2">Назначен</option>
+    </selection>
+</object-views>

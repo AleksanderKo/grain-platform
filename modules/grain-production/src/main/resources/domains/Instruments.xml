@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.3.xsd">
+
+
+    <module name="production" package="com.grain.production.db" />
+
+    <entity name="Instruments" cacheable="true">
+        <string name="name" required="true" unique="true" />
+        <string name="manufacturer" />
+        <integer name="serial" />
+        <date name="maintenance"/>
+        <many-to-many name="extruders" ref="Extruders"/>
+        <many-to-one name="category" ref="Category" />
+        <one-to-one name="current_extruder" ref="Extruders" />
+    </entity>
+
+</domain-models>
